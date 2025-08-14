@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudSync - SaaS Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Pure CSS mobile menu toggle with transition */
+    input:checked ~ .mobile-menu {
+      display: block;
+      animation: fadeInDown 0.4s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    /* Fade-in for sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    /* Hero image animation */
+    .hero-img {
+      opacity: 0;
+      transform: scale(0.95);
+      animation: heroAppear 1.2s 0.3s forwards;
+    }
+    @keyframes heroAppear {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-white shadow-md z-50 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <div class="text-2xl font-extrabold text-blue-600 tracking-tight">CloudSync</div>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="#features" class="hover:text-blue-500 transition-colors duration-200">Features</a>
+        <a href="#pricing" class="hover:text-blue-500 transition-colors duration-200">Pricing</a>
+        <a href="#contact" class="hover:text-blue-500 transition-colors duration-200">Contact</a>
+        <button class="bg-blue-500 hover:bg-blue-600 transition-colors duration-200 text-white px-4 py-2 rounded shadow hover:scale-105 transform">Sign Up</button>
+      </div>
+      <label class="md:hidden cursor-pointer text-2xl" for="menu-toggle">☰</label>
+      <input type="checkbox" id="menu-toggle" class="hidden">
+    </div>
+    <div class="mobile-menu hidden md:hidden px-4 pb-4 bg-white shadow transition-all duration-300 rounded-b-lg">
+      <a href="#features" class="block py-2 hover:text-blue-500 transition-colors">Features</a>
+      <a href="#pricing" class="block py-2 hover:text-blue-500 transition-colors">Pricing</a>
+      <a href="#contact" class="block py-2 hover:text-blue-500 transition-colors">Contact</a>
+      <button class="bg-blue-500 hover:bg-blue-600 transition-colors w-full text-white px-4 py-2 rounded mt-2 shadow">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center max-w-7xl mx-auto px-4 py-16 fade-in">
+    <div class="md:w-1/2 space-y-6">
+      <h1 class="text-5xl font-extrabold text-gray-900 leading-tight mb-2">Seamlessly Sync Your Cloud Data</h1>
+      <p class="text-gray-600 text-lg">CloudSync helps you manage, synchronize, and secure your files across multiple platforms effortlessly.</p>
+      <button class="bg-blue-500 hover:bg-blue-600 transition-all duration-200 text-white px-8 py-3 rounded shadow-lg hover:scale-105 transform font-semibold text-lg">Get Started</button>
+    </div>
+    <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+      <img src="cloud.jpg" alt="CloudSync Illustration" class="w-full max-w-md rounded-xl shadow-xl hero-img">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="bg-gray-50 py-16 fade-in">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-10 text-center text-blue-700">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white shadow-lg p-8 rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <h3 class="font-semibold text-xl mb-3 text-blue-600">Real-Time Sync</h3>
+          <p class="text-gray-600">Synchronize your data in real-time across all connected devices.</p>
+        </div>
+        <div class="bg-white shadow-lg p-8 rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <h3 class="font-semibold text-xl mb-3 text-blue-600">Secure Encryption</h3>
+          <p class="text-gray-600">Protect your files with end-to-end encryption built-in.</p>
+        </div>
+        <div class="bg-white shadow-lg p-8 rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <h3 class="font-semibold text-xl mb-3 text-blue-600">Multi-Platform Support</h3>
+          <p class="text-gray-600">Access your data from Windows, Mac, iOS, and Android seamlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 fade-in">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 flex justify-center">
+        <img src="https://via.placeholder.com/300x300" alt="User Photo" class="rounded-full w-48 h-48 mx-auto md:mx-0 shadow-lg transition-transform duration-300 hover:scale-105">
+      </div>
+      <div class="md:w-1/2 text-center md:text-left">
+        <p class="text-2xl italic mb-4 text-gray-700">“CloudSync has transformed the way our team collaborates remotely.”</p>
+        <h4 class="font-bold text-blue-700">Alex Johnson, CTO of TechCorp</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="bg-gray-50 py-16 fade-in">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-10 text-center text-blue-700">Pricing</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white shadow-lg p-8 rounded-xl text-center hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <h3 class="font-semibold text-xl mb-2 text-blue-600">Basic</h3>
+          <p class="text-4xl font-bold mb-4 text-gray-900">$9<span class="text-base font-normal">/mo</span></p>
+          <p class="mb-6 text-gray-600">Essential sync features for individuals.</p>
+          <button class="bg-blue-500 hover:bg-blue-600 transition-all duration-200 text-white px-6 py-2 rounded shadow hover:scale-105 transform">Choose Plan</button>
+        </div>
+        <div class="bg-white shadow-lg p-8 rounded-xl text-center border-4 border-blue-500 hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 scale-105">
+          <h3 class="font-semibold text-xl mb-2 text-blue-600">Pro</h3>
+          <p class="text-4xl font-bold mb-4 text-gray-900">$29<span class="text-base font-normal">/mo</span></p>
+          <p class="mb-6 text-gray-600">Advanced sync and collaboration tools.</p>
+          <button class="bg-blue-500 hover:bg-blue-600 transition-all duration-200 text-white px-6 py-2 rounded shadow hover:scale-105 transform">Choose Plan</button>
+        </div>
+        <div class="bg-white shadow-lg p-8 rounded-xl text-center hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <h3 class="font-semibold text-xl mb-2 text-blue-600">Enterprise</h3>
+          <p class="text-4xl font-bold mb-4 text-gray-900">$99<span class="text-base font-normal">/mo</span></p>
+          <p class="mb-6 text-gray-600">Complete solution for large teams and enterprises.</p>
+          <button class="bg-blue-500 hover:bg-blue-600 transition-all duration-200 text-white px-6 py-2 rounded shadow hover:scale-105 transform">Choose Plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-10 fade-in">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h4 class="font-bold mb-4 text-white">About</h4>
+        <p>CloudSync is dedicated to keeping your data connected and secure.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-white">Resources</h4>
+        <ul>
+          <li><a href="#" class="hover:underline hover:text-blue-400 transition-colors">Documentation</a></li>
+          <li><a href="#" class="hover:underline hover:text-blue-400 transition-colors">Blog</a></li>
+          <li><a href="#" class="hover:underline hover:text-blue-400 transition-colors">Support</a></li>
+        </ul>
+      </div>
+      <div id="contact">
+        <h4 class="font-bold mb-4 text-white">Contact</h4>
+        <p>Email: <a href="mailto:support@cloudsync.com" class="hover:text-blue-400 transition-colors">support@cloudsync.com</a></p>
+        <p>Phone: <a href="tel:+18001234567" class="hover:text-blue-400 transition-colors">+1 800 123 4567</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-4 text-white">Newsletter</h4>
+        <form>
+          <input type="email" placeholder="Your email" class="w-full mb-2 px-3 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 transition-colors w-full text-white px-3 py-2 rounded shadow">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in effect for sections on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeEls.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* Basic Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Replace .hamburger with .menu-icons container */
+.menu-icons {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Icons inside the container */
+.menu-icons .icon {
+  margin-left: 10px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    text-align: right;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icons {
+    display: block;
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      margin: 5px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 To-Do List</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter a task" />
+  <button onclick="handleAdd()">Add Task</button>
+  <br>
+
+  <input type="number" id="removeIndex" placeholder="Task index to remove" />
+  <button onclick="handleRemove()">Remove Task</button>
+
+  <h3>Your Tasks:</h3>
+  <ul id="taskList"></ul>
+
+  <script>
+    // Function Declaration: Add task
+    function addTask(task, taskList) {
+      taskList.push(task);
+      return taskList;
+    }
+
+    // Function Expression: Remove task
+    const removeTask = function(index, taskList) {
+      if (index >= 0 && index < taskList.length) {
+        taskList.splice(index, 1);
+      }
+      return taskList;
+    };
+
+    // Arrow Function: Print tasks to HTML
+    const printTasks = tasks => {
+      const listElement = document.getElementById("taskList");
+      listElement.innerHTML = ""; // Clear list
+      tasks.forEach((task, i) => {
+        const li = document.createElement("li");
+        li.textContent = `${i + 1}. ${task}`;
+        listElement.appendChild(li);
+      });
+    };
+
+    // Data store
+    let myTasks = [];
+
+    // Event handlers
+    function handleAdd() {
+      const input = document.getElementById("taskInput");
+      const task = input.value.trim();
+      if (task !== "") {
+        addTask(task, myTasks);
+        printTasks(myTasks);
+        input.value = "";
+      }
+    }
+
+    function handleRemove() {
+      const index = parseInt(document.getElementById("removeIndex").value) - 1;
+      removeTask(index, myTasks);
+      printTasks(myTasks);
+      document.getElementById("removeIndex").value = "";
+    }
+
+    // Initial render (optional)
+    printTasks(myTasks);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 20px;
+    }
+    .post{
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .post h2{
+        margin: 0;
+        font-size: 1.2em;
+    }
+    .post p{
+        color: #555;
+    }
+</style>
+<body>
+    <h1>Post from JsonPlaceholder</h1>
+    <div id="post-container"></div>
+
+    <script>
+        // Js code to fetch posts from JsonPlaceholder
+        fetch('https://loopmart.ng/api/allproduct')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(post => {
+            const postsContainer = document.getElementById('post-container');
+            post.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('post');
+
+                postTitle = document.createElement('h2');
+                postTitle.textContent = post.title;
+
+                postBody = document.createElement('p');
+                postBody.textContent = post.body;
+
+                postDiv.appendChild(postTitle);
+                postDiv.appendChild(postBody);
+                postsContainer.appendChild(postDiv);
+            });
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+    </script>
+</body>
+</html>
